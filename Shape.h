@@ -2,16 +2,21 @@
 #include <QWidget>
 #include <memory>
 
-class FigureParams;
-
 class Shape: public QWidget {
 public:
-    explicit Shape(const std::shared_ptr<FigureParams>& params) : m_params(params) {}
+    explicit Shape(unsigned color = 0);
     virtual ~Shape() = default;
+
+    unsigned getColorUInt() const { return colorToUInt(m_color); }
+    Qt::GlobalColor getColor() const { return m_color;}
+    void setColor(unsigned color) { checkAndSetColor(color); }
 protected:
     virtual void drawShape(QPainter*) = 0;
     void paintEvent(QPaintEvent* e) override;
+private:
+    void checkAndSetColor(unsigned color);
+    static unsigned colorToUInt(Qt::GlobalColor color);
 
-    std::shared_ptr<const FigureParams> m_params;
+    Qt::GlobalColor m_color; // color of a figure
 };
 

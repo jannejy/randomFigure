@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <memory>
 
-class FigureParams;
 class Shape;
 
 class RandomFigureController: public QMainWindow, private Ui::DisplayRandomFigure {
@@ -16,9 +15,8 @@ public:
     Q_SLOT void drawFigure();
 
 private:
-    void setNewParams();
+    void setNewParamsAndCreate();
 private:
     std::shared_ptr<Shape> m_figurePtr;
-    std::shared_ptr<FigureParams> m_params;
 };
 
