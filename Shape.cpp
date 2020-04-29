@@ -8,7 +8,7 @@ void Shape::paintEvent(QPaintEvent *e)
     drawShape(&painter);
 }
 
-Shape::Shape(unsigned int color)
+Shape::Shape(unsigned color)
 {
     checkAndSetColor(color);
 }

@@ -1,5 +1,4 @@
 #include "Rectangle.h"
-
 #include <QPainter>
 
 void Rectangle::drawShape(QPainter *painter)

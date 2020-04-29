@@ -6,7 +6,6 @@
 #include "Shape.h"
 
 class RandomFigureController: public QMainWindow, private Ui::DisplayRandomFigure {
-    Q_OBJECT
 public:
     explicit RandomFigureController(QWidget* parent = nullptr);
     ~RandomFigureController() override = default;
@@ -15,7 +14,7 @@ public:
 
 private:
     void setNewParamsAndCreate();
-private:
+
     std::unique_ptr<Shape> m_figurePtr = nullptr;
 };
 
