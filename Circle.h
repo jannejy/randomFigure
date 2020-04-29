@@ -1,14 +1,17 @@
 #pragma once
 #include <QWidget>
+#include <memory>
+
+class FigureParams;
 
 class Circle : public QWidget{
 public:
-    Circle(unsigned rad = 0): m_radius(rad) {}
+    Circle(std::shared_ptr<FigureParams> params = nullptr): m_params(params) {}
     ~Circle() = default;
 
 protected:
     void paintEvent(QPaintEvent* e);
 private:
-    unsigned m_radius;
+    std::shared_ptr<const FigureParams> m_params;
 };
 

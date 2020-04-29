@@ -10,7 +10,7 @@ find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
-add_executable(randomFigure main.cpp RandomFigureController.cpp RandomFigureController.h Circle.cpp Circle.h)
+add_executable(randomFigure main.cpp RandomFigureController.cpp RandomFigureController.h Circle.cpp Circle.h FigureParams.h)
 
 target_link_libraries(randomFigure Qt5::Core)
 target_link_libraries(randomFigure Qt5::Gui)
