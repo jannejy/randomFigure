@@ -3,6 +3,7 @@
 #include <memory>
 #include <random>
 #include <chrono>
+#include "Shape.h"
 #include "Circle.h"
 #include "FigureParams.h"
 
@@ -22,7 +23,7 @@ void RandomFigureController::drawFigure()
     {
         displayFigure->layout()->removeWidget(m_figurePtr.get());
     }
-    m_figurePtr = std::make_unique<Circle>(m_params);
+    m_figurePtr = std::make_shared<Circle>(m_params);
     m_figurePtr->repaint();
     displayFigure->layout()->addWidget(m_figurePtr.get());
 }

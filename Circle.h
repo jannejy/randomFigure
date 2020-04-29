@@ -1,17 +1,12 @@
 #pragma once
-#include <QWidget>
 #include <memory>
+#include "Shape.h"
 
-class FigureParams;
-
-class Circle : public QWidget{
+class Circle : public Shape {
 public:
-    Circle(std::shared_ptr<FigureParams> params = nullptr): m_params(params) {}
-    ~Circle() = default;
-
-protected:
-    void paintEvent(QPaintEvent* e);
+    Circle(std::shared_ptr<FigureParams> params = nullptr): Shape(params) {}
+    ~Circle() override = default;
 private:
-    std::shared_ptr<const FigureParams> m_params;
+    void drawShape(QPainter* painter) override;
 };
 

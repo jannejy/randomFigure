@@ -5,6 +5,7 @@
 #include <memory>
 
 class FigureParams;
+class Shape;
 
 class RandomFigureController: public QMainWindow, private Ui::DisplayRandomFigure {
     Q_OBJECT
@@ -17,7 +18,7 @@ public:
 private:
     void setNewParams();
 private:
-    std::unique_ptr<QWidget> m_figurePtr;
+    std::shared_ptr<Shape> m_figurePtr;
     std::shared_ptr<FigureParams> m_params;
 };
 
