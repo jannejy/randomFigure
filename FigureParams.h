@@ -3,7 +3,7 @@
 
 class FigureParams {
 public:
-    FigureParams(unsigned dist = 0, unsigned color = 0): m_distance(dist)
+    explicit FigureParams(unsigned dist = 0, unsigned color = 0): m_distance(dist)
     {
         checkAndSetColor(color);
     }
@@ -30,4 +30,3 @@ private:
     unsigned m_distance; // distance from the center of widget
     Qt::GlobalColor m_color; // color of a figure
 };
-

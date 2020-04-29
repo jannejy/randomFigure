@@ -10,8 +10,8 @@ class Shape;
 class RandomFigureController: public QMainWindow, private Ui::DisplayRandomFigure {
     Q_OBJECT
 public:
-    RandomFigureController(QWidget* parent = nullptr);
-    ~RandomFigureController() = default;
+    explicit RandomFigureController(QWidget* parent = nullptr);
+    ~RandomFigureController() override = default;
 
     Q_SLOT void drawFigure();
 

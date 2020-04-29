@@ -6,7 +6,7 @@ class FigureParams;
 
 class Shape: public QWidget {
 public:
-    Shape(std::shared_ptr<FigureParams> params) : m_params(params) {}
+    explicit Shape(const std::shared_ptr<FigureParams>& params) : m_params(params) {}
     virtual ~Shape() = default;
 protected:
     virtual void drawShape(QPainter*) = 0;
