@@ -5,6 +5,7 @@
 #include <chrono>
 #include "Shape.h"
 #include "Circle.h"
+#include "Triangle.h"
 
 RandomFigureController::RandomFigureController(QWidget* parent):
 QMainWindow(parent), m_figurePtr(nullptr)
@@ -30,7 +31,28 @@ void RandomFigureController::setNewParamsAndCreate()
 {
     std::default_random_engine randomEngine{static_cast<long unsigned int>
                                             (std::chrono::high_resolution_clock::now().time_since_epoch().count())};
-    unsigned radius = randomEngine() % 99 + 1;
     unsigned color = randomEngine() % 17 + 2;
-    m_figurePtr = std::make_shared<Circle>(radius, color);
+    switch(randomEngine() % 2)
+    {
+        case 0:
+        {
+            unsigned radius = randomEngine() % 99 + 1;
+            m_figurePtr = std::make_shared<Circle>(radius, color);
+            break;
+        }
+        case 1:
+        {
+            QVector<QPoint> points;
+            for (int i = 0; i != 3; ++i)
+            {
+                int x = randomEngine() % 200 - 100;
+                int y = randomEngine() % 200 - 100;
+                points.push_back(QPoint(x, y));
+            }
+            m_figurePtr = std::make_shared<Triangle>(points, color);
+        }
+        default:
+            break;
+    }
+
 }
