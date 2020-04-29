@@ -3,12 +3,12 @@
 
 class Circle : public QWidget{
 public:
-    Circle(int rad = 0);
+    Circle(unsigned rad = 0): m_radius(rad) {}
     ~Circle() = default;
 
 protected:
     void paintEvent(QPaintEvent* e);
 private:
-    int m_radius = 5;
+    unsigned m_radius;
 };
 
