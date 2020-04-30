@@ -8,5 +8,5 @@ public:
     ~Circle() override = default;
 private:
     void drawShape(QPainter* painter) final;
-    const unsigned m_radius; // distance from the center of widget
+    const unsigned m_radius;
 };

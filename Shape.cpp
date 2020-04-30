@@ -15,7 +15,10 @@ Shape::Shape(unsigned color)
 
 void Shape::checkAndSetColor(unsigned color)
 {
-    assert(color >= 0 && color <= colorToUInt(Qt::GlobalColor::transparent));
+    if (color > colorToUInt(Qt::GlobalColor::transparent))
+    {
+        throw std::out_of_range("Wrong cast into Qt::GlobalColor");
+    }
     m_color = static_cast<Qt::GlobalColor>(color);
 }
 

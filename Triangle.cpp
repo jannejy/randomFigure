@@ -3,7 +3,10 @@
 
 Triangle::Triangle(const QVector<QPoint>& points, unsigned int color) : Shape(color), m_points(points)
 {
-    assert(points.size() == 3);
+    if (points.size() != 3)
+    {
+        throw std::logic_error("No 3 points passed for creating triangle");
+    }
 }
 
 void Triangle::drawShape(QPainter *painter)

@@ -15,6 +15,6 @@ private:
     void checkAndSetColor(unsigned color);
     static unsigned colorToUInt(Qt::GlobalColor color);
 
-    Qt::GlobalColor m_color; // color of a figure
+    Qt::GlobalColor m_color;
 };
 

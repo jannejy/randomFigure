@@ -8,6 +8,6 @@ public:
     ~Triangle() override = default;
 private:
     void drawShape(QPainter* painter) final;
-    const QVector<QPoint> m_points;// distance from the center of widget
+    const QVector<QPoint> m_points;
 };
 

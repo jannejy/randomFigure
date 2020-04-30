@@ -6,6 +6,7 @@
 #include "Shape.h"
 
 class RandomFigureController: public QMainWindow, private Ui::DisplayRandomFigure {
+    Q_OBJECT
 public:
     explicit RandomFigureController(QWidget* parent = nullptr);
     ~RandomFigureController() override = default;

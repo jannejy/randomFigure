@@ -3,6 +3,7 @@
 #include <memory>
 #include <random>
 #include <chrono>
+#include <QMessageBox>
 #include "Circle.h"
 #include "Triangle.h"
 #include "Rectangle.h"
@@ -22,7 +23,15 @@ void RandomFigureController::drawFigure()
     {
         displayFigure->layout()->removeWidget(m_figurePtr.get());
     }
-    setNewParamsAndCreate();
+    try
+    {
+        setNewParamsAndCreate();
+    }
+    catch(const std::exception& e)
+    {
+        QMessageBox::critical(this, "Error!", QString::fromStdString(e.what()), "OK");
+        return;
+    }
     m_figurePtr->repaint();
     displayFigure->layout()->addWidget(m_figurePtr.get());
 }
