@@ -7,13 +7,13 @@ public:
     explicit Shape(unsigned color = 0);
     virtual ~Shape() = default;
 
+    static unsigned colorToUInt(Qt::GlobalColor color);
 protected:
     virtual void drawShape(QPainter*) = 0;
     void paintEvent(QPaintEvent* e) override;
 
 private:
     void checkAndSetColor(unsigned color);
-    static unsigned colorToUInt(Qt::GlobalColor color);
 
     Qt::GlobalColor m_color;
 };

@@ -14,7 +14,7 @@ void Triangle::drawShape(QPainter *painter)
     QPolygon p;
     for (const auto& points : m_points)
     {
-        p << QPoint(points.x() + width() / 2, points.y() + height() / 2);
+        p << QPoint(points.x(), points.y());
     }
     painter->drawPolygon(p);
 }
