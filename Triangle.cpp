@@ -12,9 +12,9 @@ Triangle::Triangle(const QVector<QPoint>& points, unsigned int color) : Shape(co
 void Triangle::drawShape(QPainter *painter)
 {
     QPolygon p;
-    for (const auto& points : m_points)
+    for (const auto& point : m_points)
     {
-        p << QPoint(points.x(), points.y());
+        p << point;
     }
     painter->drawPolygon(p);
 }
