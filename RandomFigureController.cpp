@@ -7,6 +7,7 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "Rectangle.h"
+#include "Square.h"
 
 RandomFigureController::RandomFigureController(QWidget* parent):
 QMainWindow(parent)
@@ -29,7 +30,7 @@ void RandomFigureController::drawFigure()
     }
     catch(const std::exception& e)
     {
-        QMessageBox::critical(this, "Error!", QString::fromStdString(e.what()), "OK");
+        QMessageBox::critical(this, "Error!", QString::fromStdString(e.what()));
         return;
     }
     m_figurePtr->repaint();
@@ -41,7 +42,7 @@ void RandomFigureController::setNewParamsAndCreate()
     std::default_random_engine randomEngine{static_cast<long unsigned int>
                                             (std::chrono::high_resolution_clock::now().time_since_epoch().count())};
     unsigned color = randomEngine() % 17 + 2;
-    switch(randomEngine() % 3)
+    switch(randomEngine() % 4)
     {
         case 0:
         {
@@ -66,6 +67,12 @@ void RandomFigureController::setNewParamsAndCreate()
             int w = randomEngine() % 200;
             int h = randomEngine() % 200;
             m_figurePtr = std::make_unique<Rectangle>(w, h, color);
+            break;
+        }
+        case 3:
+        {
+            int length = randomEngine() % 200;
+            m_figurePtr = std::make_unique<Square>(length, color);
             break;
         }
         default:
