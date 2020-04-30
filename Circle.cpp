@@ -3,5 +3,5 @@
 
 void Circle::drawShape(QPainter *painter)
 {
-    painter->drawEllipse(QPoint(width() / 2,height() / 2), m_radius * 2, m_radius * 2);
+    painter->drawEllipse(QPoint(width() / 2,height() / 2), m_radius, m_radius);
 }
